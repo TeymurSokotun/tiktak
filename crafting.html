@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Universe | Крафт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="foni-papik-pro-byeg-p-kartinki-mainkraft-logo-na-prozrachnom-fon-3.png" alt="Minecraft" height="30px" width="30px">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="guides.html">Гайды</a></li>
+                <li><a href="crafting.html">Крафт</a></li>
+                <li><a href="mods.html">Моды</a></li>
+                <li><a href="servers.html">Сервера</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="crafting-gallery" id="crafting-gallery-section">
+            <h2>Рецепты Крафта</h2>
+            <div class="filters-container">
+                <input type="text" id="craft-search" placeholder="Поиск рецептов...">
+                <select id="craft-category-filter">
+                    <option value="">Все категории</option>
+                    <option value="Инструменты">Инструменты</option>
+                    <option value="Оружие">Оружие</option>
+                    <option value="Броня">Броня</option>
+                    <option value="Блоки">Блоки</option>
+                    <option value="Предметы">Предметы</option>
+                    <option value="Еда">Еда</option>
+                </select>
+            </div>
+            <div class="craft-grid" id="craft-grid-container">
+                <div class="craft-item" data-name="Деревянная кирка" data-category="Инструменты">
+                    <img src="wooden_pickaxe_result.png" alt="Деревянная кирка">
+                    <h3>Деревянная кирка</h3>
+                    <div class="crafting-recipe-preview">
+                        <div class="grid-item"><img src="Oak_Planks.png" alt="Дубовые доски"></div>
+                        <div class="grid-item"><img src="Oak_Planks (1).png" alt="Дубовые доски"></div>
+                        <div class="grid-item"><img src="Oak_Planks (2).png" alt="Дубовые доски"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"><img src="Палка_JE1_BE1.webp" alt="Палка"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"><img src="Палка_JE1_BE1 (2).webp" alt="Палка"></div>
+                        <div class="grid-item"></div>
+                    </div>
+                    <p class="craft-description" style="display: none;">Деревянная кирка - это базовый инструмент, используемый для добычи камня и других ресурсов.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="craft-detail-page" id="craft-detail-page" style="display: none;">
+            <button id="back-to-crafts">← Назад к рецептам</button>
+            <div class="detail-content">
+                <h2 id="craft-detail-title"></h2>
+                <div class="crafting-recipe-display">
+                    <img id="craft-detail-result-image" src="" alt="Результат крафта">
+                    <div class="crafting-grid" id="craft-detail-grid">
+                    </div>
+                </div>
+                <p><strong>Категория:</strong> <span id="craft-detail-category"></span></p>
+                <p id="craft-detail-description"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Minecraft Universe. Не официальный сайт Mojang.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

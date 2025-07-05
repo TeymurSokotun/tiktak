@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Universe | Моды</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="foni-papik-pro-byeg-p-kartinki-mainkraft-logo-na-prozrachnom-fon-3.png" alt="Minecraft" height="30px" width="30px">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="guides.html">Гайды</a></li>
+                <li><a href="crafting.html">Крафт</a></li>
+                <li><a href="mods.html">Моды</a></li>
+                <li><a href="servers.html">Сервера</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="mods-gallery" id="mods-gallery-section">
+            <h2>Популярные Моды</h2>
+            <div class="filters-container">
+                <input type="text" id="mod-search" placeholder="Поиск модов...">
+                <select id="mod-version-filter">
+                    <option value="">Все версии</option>
+                    <option value="1.20.1">1.20.1</option>
+                    <option value="1.19.2">1.19.2</option>
+                    <option value="1.18.2">1.18.2</option>
+                    <option value="1.16.5">1.16.5</option>
+                </select>
+                <select id="mod-category-filter">
+                    <option value="">Все категории</option>
+                    <option value="Исследование">Исследование</option>
+                    <option value="Технологии">Технологии</option>
+                    <option value="Магия">Магия</option>
+                    <option value="Выживание">Выживание</option>
+                    <option value="Декор">Декор</option>
+                </select>
+            </div>
+            <div class="mod-grid" id="mod-grid-container">
+                </div>
+        </section>
+
+        <section class="mod-detail-page" id="mod-detail-page" style="display: none;">
+            <button id="back-to-mods">← Назад к модам</button>
+            <div class="detail-content">
+                <h2 id="mod-detail-title"></h2>
+                <img id="mod-detail-image" src="" alt="Мод">
+                <p><strong>Версия:</strong> <span id="mod-detail-version"></span></p>
+                <p><strong>Категория:</strong> <span id="mod-detail-category"></span></p>
+                <p id="mod-detail-full-description"></p>
+                <a id="detail-download" href="#" target="_blank" class="download-btn" download>Скачать мод</a>
+                <div class="detail-screenshots" id="mod-detail-screenshots">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Minecraft Universe. Не официальный сайт Mojang.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

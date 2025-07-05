@@ -1,0 +1,925 @@
+/* Імпорт шрифтів Google Fonts для більш сучасного вигляду */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* --- Загальні стилі для всього сайту --- */
+body {
+    font-family: 'Open Sans', sans-serif; /* Основний шрифт для тексту */
+    margin: 0;
+    padding: 0;
+    background-color: #e8eaf6; /* Світліший, приємніший фон */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Запобігаємо горизонтальному прокручуванню */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Акцентний шрифт для заголовків */
+    color: #2c3e50; /* Темно-синій для заголовків */
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+}
+
+a {
+    color: #3498db; /* Яскраво-синій для посилань */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- Стили для Header (Шапка сайта) --- */
+header {
+    background-color: #2c3e50; /* Темний фон */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Легка тінь */
+    position: sticky; /* Фіксований хедер при прокрутці */
+    top: 0;
+    z-index: 1000; /* Щоб був поверх іншого контенту */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo img {
+    margin-right: 10px;
+    border-radius: 5px; /* Легке заокруглення лого */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem; /* Збільшений відступ між пунктами меню */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative; /* Для підкреслення при наведенні */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #3498db; /* Колір підкреслення */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Стили для Hero секции (Главная страница) --- */
+.hero {
+    text-align: center;
+    padding: 8rem 2rem; /* Більший відступ для візуального впливу */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('minecraft-bg.jpg') center center/cover no-repeat; /* Вам нужно будет добавить это фоновое изображение */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Мінімальна висота для Hero */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тінь для тексту */
+}
+
+.hero h1 {
+    font-size: 4rem; /* Більший заголовок */
+    margin-bottom: 1rem;
+    color: white; /* Заголовок білий */
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.5rem; /* Більший текст параграфа */
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+/* ОБНОВЛЕНО: Стили для кнопки загрузки в Hero-секции */
+.hero-download-btn { /* Изменено с .hero button на .hero-download-btn */
+    background-color: #28a745; /* Ярко-зеленая кнопка */
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px; /* Заокругленные углы */
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Добавляем стили для ссылки */
+    display: inline-block; /* Чтобы padding и ширина работали как у кнопки */
+    text-decoration: none; /* Убираем подчеркивание */
+    text-align: center; /* Центрируем текст */
+}
+
+.hero-download-btn:hover { /* Изменено с .hero button:hover на .hero-download-btn:hover */
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+/* --- Общие стили для секций контента (News, Mods, Guides, Crafting) --- */
+section {
+    padding: 3rem 2rem;
+    margin-bottom: 0; /* Убираем нижний отступ, если он был */
+    background-color: #ffffff; /* Белый фон для секций */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Легкая тень для секций */
+    border-radius: 10px; /* Заокругление углов секций */
+    max-width: 1200px; /* Максимальная ширина контента */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem; /* Отступ сверху между секциями */
+}
+
+section h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+}
+
+/* --- Стили для News Grid --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem; /* Увеличенный отступ */
+    padding: 0 1rem;
+}
+
+.news-grid article {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem; /* Внутренний отступ */
+    display: flex;
+    flex-direction: column;
+}
+
+.news-grid article:hover {
+    transform: translateY(-7px); /* Легкий подъем */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.news-grid article h3 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.news-grid article p {
+    font-size: 1.1rem;
+    color: #555;
+    flex-grow: 1; /* Чтобы параграфы занимали все доступное место */
+}
+
+/* --- Стили для секций Моды и Гайды (карточки и сетка) --- */
+.mod-grid, .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem; /* Единый увеличенный отступ */
+    padding: 0 1rem;
+}
+
+.mod-card, .guide-card {
+    background-color: white;
+    border-radius: 12px; /* Более сильное заокругление */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Выраженная тень */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-card:hover, .guide-card:hover {
+    transform: translateY(-8px); /* Заметный подъем */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.mod-card img, .guide-card img {
+    width: 100%;
+    height: 190px; /* Немного больше высота */
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.mod-card-content, .guide-card-content {
+    padding: 1.2rem; /* Немного больше внутренний отступ */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-card h3, .guide-card h3 {
+    font-size: 1.5rem; /* Немного больший размер */
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+}
+
+.mod-card p, .guide-card p {
+    font-size: 1rem; /* Читабельнее текст */
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.mod-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+    padding-top: 0.8rem; /* Отступ сверху */
+    border-top: 1px solid #f0f0f0; /* Разделитель */
+}
+
+.mod-card-meta span {
+    background-color: #e0f2f7; /* Более нежный фон */
+    padding: 0.4rem 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* --- Стили для детальных страниц (моды, гайды) --- */
+.mod-detail-page, .guide-detail-page {
+    padding: 3.5rem 2.5rem; /* Увеличенный отступ */
+    background-color: #f8faff; /* Светлее фон */
+    max-width: 950px; /* Шире контент */
+    margin: 2rem auto;
+    border-radius: 15px; /* Больше заокругление */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18); /* Более выраженная тень */
+}
+
+.mod-detail-page h2, .guide-detail-page h2 {
+    color: #2c3e50;
+    font-size: 3.2rem; /* Крупнее заголовок */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.mod-detail-page .detail-content, .guide-detail-page .detail-content {
+    background-color: white;
+    padding: 2.5rem; /* Больший отступ */
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.08); /* Более заметная внутренняя тень */
+}
+
+.mod-detail-page img, .guide-detail-page img {
+    width: 100%;
+    max-height: 450px; /* Чуть больше высота */
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mod-detail-page p, .guide-detail-page p {
+    font-size: 1.15rem; /* Читабельнее */
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.2rem;
+}
+
+.mod-detail-page p strong, .guide-detail-page p strong {
+    color: #2c3e50;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 1.1rem 2.5rem; /* Больше кнопка */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+#back-to-mods, #back-to-guides, #back-to-crafts { /* Добавлен #back-to-crafts */
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 2rem; /* Больше кнопка */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-mods:hover, #back-to-guides:hover, #back-to-crafts:hover { /* Добавлен #back-to-crafts */
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+.detail-screenshots {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Чуть больше скриншоты */
+    gap: 1.2rem;
+}
+
+.detail-screenshots img {
+    width: 100%;
+    height: 140px; /* Чуть больше высота */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.detail-screenshots img:hover {
+    transform: scale(1.03); /* Легке збільшення при наведенні */
+}
+
+/* --- Стили для фильтров в секции Моды и Крафт --- */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem; /* Увеличенный отступ */
+    margin-bottom: 2.5rem; /* Увеличенный отступ */
+    background-color: #f0f4f8; /* Легкий фон для контейнера фильтров */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.filters-container input[type="text"],
+.filters-container select {
+    padding: 0.8rem 1.2rem; /* Больше отступ */
+    border: 1px solid #cdd3dc; /* Более мягкий цвет рамки */
+    border-radius: 8px; /* Больше заокругление */
+    font-size: 1rem;
+    width: 280px; /* Чуть шире */
+    max-width: 100%;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters-container input[type="text"]:focus,
+.filters-container select:focus {
+    border-color: #3498db;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08), 0 0 0 3px rgba(52, 152, 219, 0.2); /* Фокус-эффект */
+    outline: none;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #666;
+    padding: 2rem;
+    grid-column: 1 / -1; /* Распространить на всю ширину сетки */
+}
+
+/* --- Стили для секции Крафт --- */
+.crafting-gallery {
+    padding: 3rem 2rem; /* Используем общие стили секций */
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.crafting-gallery h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.crafting-gallery h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Чуть меньше карточки для крафта */
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.craft-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
+
+.craft-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.craft-card img {
+    width: 120px; /* Размер иконки крафта */
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0.5rem auto 1rem; /* Центрируем изображение */
+}
+
+.craft-card h3 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.craft-card p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+/* --- Стили для фильтров в секции Крафт (общие с модами, но переопределяем если надо) --- */
+.crafting-gallery .filters-container {
+    margin-bottom: 2.5rem; /* Общий отступ для фильтров */
+}
+
+/* --- Стили для детальной страницы Крафта --- */
+.craft-detail-page {
+    padding: 3.5rem 2.5rem;
+    background-color: #f8faff;
+    max-width: 950px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.craft-detail-page h2 {
+    color: #2c3e50;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.craft-detail-page .detail-content {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем контент */
+}
+
+.crafting-recipe-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.crafting-recipe-display img {
+    width: 150px; /* Размер изображения результата */
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0; /* Фон для иконок */
+    padding: 10px;
+}
+
+.crafting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px); /* Сетка 3x3 для крафта */
+    grid-template-rows: repeat(3, 80px);
+    gap: 5px;
+    background-color: #d1d9e2; /* Фон сетки */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+}
+
+.crafting-grid .crafting-slot {
+    width: 80px;
+    height: 80px;
+    background-color: #e6edf4; /* Фон ячейки */
+    border: 1px solid #b7c0cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Обрезаем, если изображение выходит за границы */
+}
+
+.crafting-grid .crafting-slot img {
+    width: 60px; /* Размер иконки ингредиента */
+    height: 60px;
+    object-fit: contain;
+    margin: 0; /* Убираем отступы, добавленные ранее */
+    box-shadow: none; /* Убираем тени */
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.craft-detail-page p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.2rem;
+    text-align: center; /* Центрируем описание */
+}
+
+/* --- Медиа-запросы для адаптивности --- */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .hero p {
+        font-size: 1.3rem;
+    }
+    section h2 {
+        font-size: 2.5rem;
+    }
+    .mod-grid, .guide-grid, .news-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+    .hero {
+        padding: 6rem 1.5rem;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .hero-download-btn { /* Изменено */
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
+    section {
+        padding: 2.5rem 1.5rem;
+        margin-top: 1.5rem;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+    .mod-card h3, .guide-card h3, .news-grid article h3, .craft-card h3 { /* Добавлен .craft-card h3 */
+        font-size: 1.3rem;
+    }
+    .mod-detail-page, .guide-detail-page, .craft-detail-page { /* Добавлен .craft-detail-page */
+        padding: 2rem 1.5rem;
+        margin: 1.5rem auto;
+    }
+    .mod-detail-page h2, .guide-detail-page h2, .craft-detail-page h2 { /* Добавлен .craft-detail-page h2 */
+        font-size: 2.2rem;
+    }
+    .mod-detail-page p, .guide-detail-page p, .craft-detail-page p { /* Добавлен .craft-detail-page p */
+        font-size: 1rem;
+    }
+    .download-btn, #back-to-mods, #back-to-guides, #back-to-crafts { /* Добавлен #back-to-crafts */
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    .detail-screenshots {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .crafting-grid {
+        grid-template-columns: repeat(3, 70px); /* Меньше сетка */
+        grid-template-rows: repeat(3, 70px);
+    }
+    .crafting-grid .crafting-slot {
+        width: 70px;
+        height: 70px;
+    }
+    .crafting-grid .crafting-slot img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+    nav ul li {
+        margin: 0.5rem 0.8rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .news-grid, .mod-grid, .guide-grid, .craft-grid { /* Добавлен .craft-grid */
+        grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
+        gap: 1.5rem;
+    }
+    .filters-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .filters-container input[type="text"],
+    .filters-container select {
+        width: 100%; /* Занимают всю ширину */
+        font-size: 0.9rem;
+    }
+    section {
+        padding: 1.5rem 1rem;
+    }
+    section h2 {
+        font-size: 1.8rem;
+    }
+    .mod-detail-page, .guide-detail-page, .craft-detail-page { /* Добавлен .craft-detail-page */
+        padding: 1.5rem 1rem;
+    }
+    .mod-detail-page h2, .guide-detail-page h2, .craft-detail-page h2 { /* Добавлен .craft-detail-page h2 */
+        font-size: 1.8rem;
+    }
+    .crafting-grid {
+        grid-template-columns: repeat(3, 60px); /* Еще меньше сетка */
+        grid-template-rows: repeat(3, 60px);
+    }
+    .crafting-grid .crafting-slot {
+        width: 60px;
+        height: 60px;
+    }
+    .crafting-grid .crafting-slot img {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* --- Стили для секции Сервера --- */
+.servers-list {
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.servers-list h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.servers-list h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+}
+
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.server-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.server-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.server-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 50%; /* Круглое лого */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.server-card h3 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 0.8rem;
+}
+
+.server-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    flex-grow: 1; /* Чтобы описание занимало доступное место */
+    margin-bottom: 1.5rem;
+}
+
+.server-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto; /* Прижимает к низу карточки */
+    margin-bottom: 1.5rem;
+}
+
+.server-info span {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.ip-address {
+    background-color: #e0f2f7;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: 'Consolas', 'Courier New', monospace; /* Моноширинный шрифт для IP */
+    color: #0056b3;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ip-address:hover {
+    background-color: #cce9f5;
+}
+
+/* Кнопки в карточке сервера */
+.server-card button,
+.server-card .visit-website-btn {
+    width: calc(100% - 2rem); /* Учитываем padding карточки */
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.8rem;
+    text-decoration: none; /* Для ссылки */
+    display: inline-block; /* Для ссылки */
+    text-align: center; /* Для ссылки */
+}
+
+.copy-ip-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.copy-ip-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.visit-website-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.visit-website-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Стиль для отключенной ссылки */
+.visit-website-btn.disabled-link {
+    background-color: #cccccc; /* Серый цвет */
+    cursor: not-allowed;
+    pointer-events: none; /* Отключает события мыши */
+    box-shadow: none;
+}
+
+/* --- Медиа-запросы для адаптивности --- */
+@media (max-width: 768px) {
+    .server-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .server-card {
+        padding: 1rem;
+    }
+    .server-card button,
+    .server-card .visit-website-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .server-grid {
+        grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
+    }
+    .server-card h3 {
+        font-size: 1.5rem;
+    }
+    .server-card p {
+        font-size: 0.9rem;
+    }
+    .server-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
