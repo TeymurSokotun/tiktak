@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'starting-survival',
             title: 'Як почати виживання в Minecraft',
-            image: 'images/guides/starting_survival.png', // Замінено на передбачуване зображення
+            image: 'gaud/go.jfif', // Замінено на передбачуване зображення
             summary: 'Покроковий гайд для новачків по перших днях у світі Minecraft.',
             fullContent: `
                 <h3>День 1: Основи виживання</h3>
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'getting-diamonds',
             title: 'Як знайти алмази в Minecraft',
-            image: 'images/guides/getting_diamonds.png', // Замінено на передбачуване зображення
+            image: 'gaud/goalmaz.webp', // Замінено на передбачуване зображення
             summary: 'Детальний посібник з ефективного пошуку найцінніших ресурсів.',
             fullContent: `
                 <h3>Де шукати алмази?</h3>
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'nether-survival',
             title: 'Виживання в Нижньому Світі',
-            image: 'images/guides/nether_survival.png', // Замінено на передбачуване зображення
+            image: 'gaud/goada.webp', // Замінено на передбачуване зображення
             summary: 'Посібник з виживання та дослідження небезпечного виміру.',
             fullContent: `
                 <h3>Вхід у Нижній Світ</h3>
@@ -543,71 +543,103 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCrafts(craftingRecipesData);
     }
 
-    // --- Модуль для Серверів ---
+   // --- Модуль для Серверов ---
     const serverGridContainer = document.getElementById('server-grid-container'); // Get the new container
 
-    // Sample Server Data (імітація даних з сервера)
+    // Sample Server Data (имитация данных с сервера)
     const serversData = [
         {
             id: 'hypixel',
             title: 'Hypixel Network',
             ip: 'mc.hypixel.net',
-            description: 'Один з найбільших і найпопулярніших серверів міні-ігор у світі Minecraft. Тисячі гравців щодня змагаються в SkyWars, Bed Wars, Murder Mystery та багатьох інших режимах.',
+            description: 'Один из самых крупных и популярных серверов мини-игр в мире Minecraft. Тысячи игроков ежедневно соревнуются в SkyWars, Bed Wars, Murder Mystery и многих других режимах.',
             version: '1.8 - 1.20+',
             website: 'https://hypixel.net/',
-            image: 'DdNypQdN_400x400.png' // Ваше надане зображення
+            image: 'DdNypQdN_400x400.png' // Your provided image
         },
         {
             id: 'mineplex',
             title: 'Mineplex',
             ip: 'us.mineplex.com',
-            description: 'Ще один легендарний сервер міні-ігор з величезним вибором режимів, включаючи Death Tag, Super Smash Mobs, Bridges та Clans. Чудовий вибір для активного проведення часу.',
+            description: 'Ещё один легендарный сервер мини-игр с огромным выбором режимов, включая Death Tag, Super Smash Mobs, Bridges и Clans. Отличный выбор для активного времяпровождения.',
             version: '1.8 - 1.20+',
             website: 'https://www.mineplex.com/',
-            image: 'images.png' // Ваше надане зображення
+            image: 'images.png' // Your provided image
         },
         {
             id: 'cs-money',
             title: 'CS.MONEY',
             ip: 'play.cs.money',
-            description: 'Сервер для любителів CS:GO зі скінами та кейсами в Minecraft. Тут ви можете відкривати кейси, отримувати скіни та брати участь в унікальних міні-іграх, натхненних CS:GO.',
+            description: 'Сервер для любителей CS:GO со скинами и кейсами в Minecraft. Здесь вы можете открывать кейсы, получать скины и участвовать в уникальных мини-играх, вдохновленных CS:GO.',
             version: '1.16 - 1.20+',
-            website: '#', // Немає конкретного веб-сайту, залишаємо '#' як placeholder або видаляємо
-            image: 'maxresdefault.jpg' // Ваше надане зображення
+            website: '#', // No specific website provided, keep '#' for placeholder or remove
+            image: 'maxresdefault.jpg' // Your provided image
         }
     ];
 
     function renderServers(serversToRender) {
-        if (!serverGridContainer) return;
-        serverGridContainer.innerHTML = '';
+        if (!serverGridContainer) return; // Ensure the container exists
+        serverGridContainer.innerHTML = ''; // Clear existing content
 
         if (serversToRender.length === 0) {
-            serverGridContainer.innerHTML = '<p class="no-results">Серверів не знайдено.</p>';
+            serverGridContainer.innerHTML = '<p class="no-results">Серверы не найдены.</p>';
             return;
         }
 
         serversToRender.forEach(server => {
             const serverCard = document.createElement('div');
             serverCard.classList.add('server-card');
-            serverCard.dataset.id = server.id;
+
+            // Construct the website link, disable if '#'
+            const websiteLinkHtml = server.website && server.website !== '#'
+                ? `<a href="${server.website}" target="_blank" class="visit-website-btn">Перейти на сайт</a>`
+                : `<a href="#" class="visit-website-btn disabled-link">Сайт не требуется</a>`;
 
             serverCard.innerHTML = `
-                <img src="${server.image}" alt="${server.title}">
-                <div class="server-card-content">
-                    <h3>${server.title}</h3>
-                    <p class="server-ip">IP: <span>${server.ip}</span></p>
-                    <p>${server.description}</p>
-                    <div class="server-card-meta">
-                        <span>Версія: ${server.version}</span>
-                    </div>
-                    ${server.website && server.website !== '#' ? `<a href="${server.website}" target="_blank" class="server-website-btn">Веб-сайт</a>` : ''}
+                <img src="${server.image}" alt="${server.title} Logo" class="server-logo">
+                <h3>${server.title}</h3>
+                <p>${server.description}</p>
+                <div class="server-info">
+                    <span>Версия: ${server.version}</span>
+                    <span class="ip-address" id="ip-${server.id}">${server.ip}</span>
                 </div>
+                <button class="copy-ip-btn" data-ip="${server.ip}">Копировать IP</button>
+                ${websiteLinkHtml}
             `;
             serverGridContainer.appendChild(serverCard);
         });
+        // Re-attach event listeners for new buttons after rendering
+        attachCopyIpListeners();
     }
 
-    // Ініціалізація: якщо ми на сторінці servers.html, відображаємо сервери
+    // Function to handle copying IP, separated for reusability
+    async function handleCopyIp(event) {
+        const button = event.target;
+        const ipAddress = button.dataset.ip;
+
+        try {
+            await navigator.clipboard.writeText(ipAddress);
+            const originalText = button.textContent;
+            button.textContent = 'IP скопирован!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Не удалось скопировать IP:', err);
+            alert('Ошибка при копировании IP. Попробуйте скопировать вручную: ' + ipAddress);
+        }
+    }
+
+    // Function to attach listeners to copy IP buttons
+    function attachCopyIpListeners() {
+        const copyIpButtons = document.querySelectorAll('.copy-ip-btn');
+        copyIpButtons.forEach(button => {
+            button.removeEventListener('click', handleCopyIp); // Remove existing to prevent duplicates
+            button.addEventListener('click', handleCopyIp);
+        });
+    }
+
+    // Initialization: if we are on the servers.html page, render the servers
     if (window.location.pathname.includes('servers.html')) {
         renderServers(serversData);
     }
